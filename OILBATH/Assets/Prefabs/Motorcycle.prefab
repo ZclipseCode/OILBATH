@@ -827,6 +827,9 @@ MonoBehaviour:
   maxSpeed: 12
   boostSpeed: 50
   destroySpeed: 12
+  boostDischargeSpeed: 1
+  boostRechargeSpeed: 3
+  maxBoost: 3
 --- !u!114 &7604319310088012803
 MonoBehaviour:
   m_ObjectHideFlags: 0

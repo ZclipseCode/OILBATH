@@ -8,13 +8,19 @@ public class MotorcycleMovement : MonoBehaviour
     [SerializeField] float maxSpeed = 12f;
     [SerializeField] float boostSpeed = 50f;
     [SerializeField] float destroySpeed = 8f;
+    [SerializeField] float boostDischargeSpeed = 1f;
+    [SerializeField] float boostRechargeSpeed = 1f;
+    [SerializeField] float maxBoost = 10f;
     Rigidbody2D rb;
     PlayerControls playerControls;
     bool boostPressed;
+    float currentBoost;
 
     private void Awake()
     {
         rb = GetComponent<Rigidbody2D>();
+
+        currentBoost = maxBoost;
 
         playerControls = new PlayerControls();
         playerControls.Player.Enable();
@@ -40,6 +46,7 @@ public class MotorcycleMovement : MonoBehaviour
 
     void Boost()
     {
+        print(currentBoost);
         if (playerControls.Player.Boost.ReadValue<float>() > 0)
         {
             boostPressed = true;
@@ -49,9 +56,23 @@ public class MotorcycleMovement : MonoBehaviour
             boostPressed = false;
         }
 
-        if (boostPressed)
+        if (boostPressed && currentBoost > 0)
         {
             rb.AddForce(rb.velocity.normalized * boostSpeed, ForceMode2D.Force);
+            currentBoost -= boostDischargeSpeed * Time.deltaTime;
+        }
+        else if (!boostPressed && currentBoost < maxBoost)
+        {
+            currentBoost += boostRechargeSpeed * Time.deltaTime;
+        }
+
+        if (currentBoost < 0)
+        {
+            currentBoost = 0;
+        }
+        if (currentBoost > maxBoost)
+        {
+            currentBoost = maxBoost;
         }
     }
 
@@ -62,4 +83,6 @@ public class MotorcycleMovement : MonoBehaviour
 
     public float GetDestroySpeed() => destroySpeed;
     public bool GetBoostPressed() => boostPressed;
+    public float GetMaxBoost() => maxBoost;
+    public float GetCurrentBoost() => currentBoost;
 }
