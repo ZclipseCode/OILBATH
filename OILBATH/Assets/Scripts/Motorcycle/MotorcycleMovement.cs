@@ -4,10 +4,13 @@ using UnityEngine;
 
 public class MotorcycleMovement : MonoBehaviour
 {
-    [SerializeField] float speed = 1f;
-    [SerializeField] float maxSpeed = 1f;
+    [SerializeField] float speed = 7f;
+    [SerializeField] float maxSpeed = 12f;
+    [SerializeField] float boostSpeed = 50f;
+    [SerializeField] float destroySpeed = 8f;
     Rigidbody2D rb;
     PlayerControls playerControls;
+    bool boostPressed;
 
     private void Awake()
     {
@@ -20,6 +23,7 @@ public class MotorcycleMovement : MonoBehaviour
     private void FixedUpdate()
     {
         Move();
+        Boost();
     }
 
     void Move()
@@ -34,8 +38,28 @@ public class MotorcycleMovement : MonoBehaviour
         rb.AddForce(velocityChange * speed, ForceMode2D.Force);
     }
 
+    void Boost()
+    {
+        if (playerControls.Player.Boost.ReadValue<float>() > 0)
+        {
+            boostPressed = true;
+        }
+        else
+        {
+            boostPressed = false;
+        }
+
+        if (boostPressed)
+        {
+            rb.AddForce(rb.velocity.normalized * boostSpeed, ForceMode2D.Force);
+        }
+    }
+
     private void OnDestroy()
     {
         playerControls.Player.Disable();
     }
+
+    public float GetDestroySpeed() => destroySpeed;
+    public bool GetBoostPressed() => boostPressed;
 }

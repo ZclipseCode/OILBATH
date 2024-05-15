@@ -7,6 +7,7 @@ public class CarMovement : MonoBehaviour
     [SerializeField] float speed = 1f;
     [SerializeField] float maxSpeed = 1f;
     [SerializeField] CarObjectiveFinder objectiveFinder;
+    [SerializeField] GameObject explosion;
     Transform objective;
     Rigidbody2D rb;
 
@@ -31,6 +32,20 @@ public class CarMovement : MonoBehaviour
         Vector2 velocityChange = targetVelocity - rb.velocity;
 
         rb.AddForce(velocityChange * speed, ForceMode2D.Force);
+    }
+
+    private void OnCollisionEnter2D(Collision2D collision)
+    {
+        if (collision.collider.CompareTag("Player"))
+        {
+            MotorcycleMovement motorcycleMovement = collision.gameObject.GetComponent<MotorcycleMovement>();
+
+            if (motorcycleMovement.GetBoostPressed() && collision.relativeVelocity.magnitude >= motorcycleMovement.GetDestroySpeed())
+            {
+                Instantiate(explosion, transform.position, Quaternion.identity);
+                Destroy(gameObject);
+            }
+        }
     }
 
     public Transform GetObjective() => objective;
