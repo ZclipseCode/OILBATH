@@ -33,14 +33,6 @@ public class CarMovement : MonoBehaviour
         rb.AddForce(velocityChange * speed, ForceMode2D.Force);
     }
 
-    //private void OnTriggerEnter2D(Collider2D collision)
-    //{
-    //    if (objective != null && collision.transform == objective.transform && !objectiveFinder.GetSearching())
-    //    {
-    //        objective = null;
-    //        objectiveFinder.SetSearching(true);
-    //    }
-    //}
-
+    public Transform GetObjective() => objective;
     public void SetObjective(Transform value) => objective = value;
 }

@@ -4,7 +4,6 @@ using UnityEngine;
 
 public class MotorcycleSpriteStacking : SpriteStacking
 {
-    [SerializeField] float rotationSpeed = 1;
     PlayerControls playerControls;
 
     private void Awake()

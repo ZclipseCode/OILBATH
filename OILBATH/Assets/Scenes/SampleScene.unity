@@ -1785,6 +1785,8 @@ MonoBehaviour:
   - {fileID: 468124287}
   - {fileID: 558440533}
   - {fileID: 1891384633}
+  rotationSpeed: 20
+  movement: {fileID: 1275090960}
 --- !u!50 &1275090959
 Rigidbody2D:
   serializedVersion: 4
@@ -1824,8 +1826,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 85a3867a63a553b4bad3e1f1af88eb11, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  speed: 7
-  maxSpeed: 12
+  speed: 5
+  maxSpeed: 5
   objectiveFinder: {fileID: 1785859323}
 --- !u!61 &1275090961
 BoxCollider2D:

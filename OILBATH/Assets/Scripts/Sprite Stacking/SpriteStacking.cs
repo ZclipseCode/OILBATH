@@ -7,6 +7,7 @@ public class SpriteStacking : MonoBehaviour
     // sprite layers must increment by one
 
     [SerializeField] protected SpriteRenderer[] spriteRenderers;
+    [SerializeField] protected float rotationSpeed = 20;
 
     private void Start()
     {
