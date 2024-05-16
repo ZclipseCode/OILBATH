@@ -6,7 +6,6 @@ public class CarMovement : MonoBehaviour
 {
     [SerializeField] float speed = 1f;
     [SerializeField] float maxSpeed = 1f;
-    [SerializeField] CarObjectiveFinder objectiveFinder;
     [SerializeField] GameObject explosion;
     Transform objective;
     Rigidbody2D rb;

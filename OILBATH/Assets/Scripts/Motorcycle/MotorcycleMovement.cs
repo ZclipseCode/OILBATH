@@ -46,7 +46,6 @@ public class MotorcycleMovement : MonoBehaviour
 
     void Boost()
     {
-        print(currentBoost);
         if (playerControls.Player.Boost.ReadValue<float>() > 0)
         {
             boostPressed = true;

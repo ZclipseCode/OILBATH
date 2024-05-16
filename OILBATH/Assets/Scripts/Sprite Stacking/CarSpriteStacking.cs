@@ -22,4 +22,6 @@ public class CarSpriteStacking : SpriteStacking
             }
         }
     }
+
+    public SpriteRenderer[] GetSpriteRenderers() => spriteRenderers;
 }
