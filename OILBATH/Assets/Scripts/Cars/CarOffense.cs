@@ -59,7 +59,6 @@ public class CarOffense : MonoBehaviour
 
         foreach (Collider2D col in colliders)
         {
-            print(col.name);
             if (col.CompareTag("Player"))
             {
                 print("Loss");
