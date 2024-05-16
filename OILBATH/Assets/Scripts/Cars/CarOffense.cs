@@ -7,6 +7,8 @@ public class CarOffense : MonoBehaviour
     [SerializeField] CarMovement movement;
     [SerializeField] CarSpriteStacking spriteStacking;
     [SerializeField] GameObject explosion;
+    [SerializeField] float explosionRadius = 1.3f;
+    [SerializeField] LayerMask canDestroyLayer;
     Transform player;
     SpriteRenderer[] spriteRenderers;
     bool selfDestructInitiated;
@@ -23,11 +25,11 @@ public class CarOffense : MonoBehaviour
         if (collision.collider.CompareTag("Player") && !selfDestructInitiated)
         {
             selfDestructInitiated = true;
-            StartCoroutine(SelfDestruct());
+            StartCoroutine(StartSelfDestruct());
         }
     }
 
-    IEnumerator SelfDestruct()
+    IEnumerator StartSelfDestruct()
     {
         int blinks = 5;
         float blinkRate = 0.5f;
@@ -52,6 +54,23 @@ public class CarOffense : MonoBehaviour
         }
 
         Instantiate(explosion, transform.position, Quaternion.identity);
+
+        Collider2D[] colliders = Physics2D.OverlapCircleAll(transform.position, explosionRadius, canDestroyLayer);
+
+        foreach (Collider2D col in colliders)
+        {
+            print(col.name);
+            if (col.CompareTag("Player"))
+            {
+                print("Loss");
+            }
+            if (col.CompareTag("Car"))
+            {
+                Instantiate(explosion, col.transform.position, Quaternion.identity);
+                Destroy(col.gameObject);
+            }
+        }
+
         Destroy(gameObject);
     }
 }
