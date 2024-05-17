@@ -133,7 +133,7 @@ MonoBehaviour:
   m_OnCullStateChanged:
     m_PersistentCalls:
       m_Calls: []
-  m_Sprite: {fileID: 1908887306, guid: ae6623ef2797a8a488d44bfa2ffb6120, type: 3}
+  m_Sprite: {fileID: 1665533251, guid: ae6623ef2797a8a488d44bfa2ffb6120, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -194,11 +194,11 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   movement: {fileID: 0}
   sprites:
-  - {fileID: -924708877, guid: ae6623ef2797a8a488d44bfa2ffb6120, type: 3}
-  - {fileID: 161826681, guid: ae6623ef2797a8a488d44bfa2ffb6120, type: 3}
-  - {fileID: 390382608, guid: ae6623ef2797a8a488d44bfa2ffb6120, type: 3}
-  - {fileID: 1015906872, guid: ae6623ef2797a8a488d44bfa2ffb6120, type: 3}
-  - {fileID: 1908887306, guid: ae6623ef2797a8a488d44bfa2ffb6120, type: 3}
+  - {fileID: 2123330838, guid: ae6623ef2797a8a488d44bfa2ffb6120, type: 3}
+  - {fileID: 1858810585, guid: ae6623ef2797a8a488d44bfa2ffb6120, type: 3}
+  - {fileID: -1462680206, guid: ae6623ef2797a8a488d44bfa2ffb6120, type: 3}
+  - {fileID: 216112570, guid: ae6623ef2797a8a488d44bfa2ffb6120, type: 3}
+  - {fileID: 1665533251, guid: ae6623ef2797a8a488d44bfa2ffb6120, type: 3}
   bar: {fileID: 8923182885097675430}
 --- !u!1 &5992444997861393343
 GameObject:

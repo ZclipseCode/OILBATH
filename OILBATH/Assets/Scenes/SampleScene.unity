@@ -1085,10 +1085,34 @@ PrefabInstance:
       propertyPath: movement
       value: 
       objectReference: {fileID: 224475441}
+    - target: {fileID: 5145213152355974622, guid: 1daecad8e8f6a8a48806f4aa819fd060, type: 3}
+      propertyPath: sprites.Array.data[0]
+      value: 
+      objectReference: {fileID: 2123330838, guid: ae6623ef2797a8a488d44bfa2ffb6120, type: 3}
+    - target: {fileID: 5145213152355974622, guid: 1daecad8e8f6a8a48806f4aa819fd060, type: 3}
+      propertyPath: sprites.Array.data[1]
+      value: 
+      objectReference: {fileID: 1858810585, guid: ae6623ef2797a8a488d44bfa2ffb6120, type: 3}
+    - target: {fileID: 5145213152355974622, guid: 1daecad8e8f6a8a48806f4aa819fd060, type: 3}
+      propertyPath: sprites.Array.data[2]
+      value: 
+      objectReference: {fileID: -1462680206, guid: ae6623ef2797a8a488d44bfa2ffb6120, type: 3}
+    - target: {fileID: 5145213152355974622, guid: 1daecad8e8f6a8a48806f4aa819fd060, type: 3}
+      propertyPath: sprites.Array.data[3]
+      value: 
+      objectReference: {fileID: 216112570, guid: ae6623ef2797a8a488d44bfa2ffb6120, type: 3}
+    - target: {fileID: 5145213152355974622, guid: 1daecad8e8f6a8a48806f4aa819fd060, type: 3}
+      propertyPath: sprites.Array.data[4]
+      value: 
+      objectReference: {fileID: 1665533251, guid: ae6623ef2797a8a488d44bfa2ffb6120, type: 3}
     - target: {fileID: 6372045123112122897, guid: 1daecad8e8f6a8a48806f4aa819fd060, type: 3}
       propertyPath: m_Name
       value: In-Game Canvas
       objectReference: {fileID: 0}
+    - target: {fileID: 8923182885097675430, guid: 1daecad8e8f6a8a48806f4aa819fd060, type: 3}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 1665533251, guid: ae6623ef2797a8a488d44bfa2ffb6120, type: 3}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
