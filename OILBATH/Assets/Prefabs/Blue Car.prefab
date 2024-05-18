@@ -895,7 +895,7 @@ GameObject:
   - component: {fileID: 1074679892522576691}
   - component: {fileID: 6004911057408328991}
   - component: {fileID: 5344118539542068410}
-  m_Layer: 0
+  m_Layer: 7
   m_Name: Blue Car
   m_TagString: Car
   m_Icon: {fileID: 0}
@@ -985,7 +985,7 @@ BoxCollider2D:
     m_Bits: 0
   m_ExcludeLayers:
     serializedVersion: 2
-    m_Bits: 0
+    m_Bits: 128
   m_LayerOverridePriority: 0
   m_ForceSendLayers:
     serializedVersion: 2
@@ -1029,5 +1029,4 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   speed: 5
   maxSpeed: 5
-  objectiveFinder: {fileID: 7903048180160846049}
   explosion: {fileID: 86851213059752031, guid: 5124d18c19d379e45b600ee8d49c322f, type: 3}
