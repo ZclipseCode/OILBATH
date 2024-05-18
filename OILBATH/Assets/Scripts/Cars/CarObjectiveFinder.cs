@@ -37,8 +37,12 @@ public class CarObjectiveFinder : MonoBehaviour
         if (collision.CompareTag("Objective") && searching)
         {
             Vector3 direction = collision.transform.position - transform.position;
+            float distance = direction.magnitude;
+            direction.Normalize();
 
-            if (Physics2D.Raycast(transform.position, direction, obstacleLayer))
+            RaycastHit2D hit = Physics2D.Raycast(transform.position, direction, distance, obstacleLayer);
+
+            if (hit.collider == null)
             {
                 foreach (Transform objective in visited)
                 {
