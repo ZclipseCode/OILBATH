@@ -8,8 +8,13 @@ public class Objective : MonoBehaviour
     {
         if (collision.CompareTag("Car"))
         {
-            collision.gameObject.GetComponent<CarMovement>().SetObjective(null);
-            collision.gameObject.GetComponentInChildren<CarObjectiveFinder>().SetSearching(true);
+            CarObjectiveFinder objectiveFinder = collision.gameObject.GetComponentInChildren<CarObjectiveFinder>();
+
+            if (objectiveFinder != null)
+            {
+                collision.gameObject.GetComponent<CarMovement>().SetObjective(null);
+                objectiveFinder.SetSearching(true);
+            }
         }
     }
 }
