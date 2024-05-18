@@ -4,8 +4,10 @@ using UnityEngine;
 
 public class Explosion : MonoBehaviour
 {
+    [SerializeField] GameObject parent;
+
     public void Destroy()
     {
-        Destroy(gameObject);
+        Destroy(parent);
     }
 }
