@@ -66,7 +66,7 @@ public class CarOffense : MonoBehaviour
                     print("Loss");
                 }
             }
-            if (col.CompareTag("Car"))
+            if (col.CompareTag("Car") && col.gameObject != gameObject)
             {
                 Score.selfDestructDestroy?.Invoke();
                 Instantiate(explosion, col.transform.position, Quaternion.identity);

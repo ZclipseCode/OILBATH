@@ -32,9 +32,7 @@ public class Score : MonoBehaviour
 
         if (timer >= streakTime)
         {
-            streakMultiplier = 1;
-            timer = 0f;
-            streakStarted = false;
+            ResetStreak();
         }
     }
 
@@ -48,6 +46,8 @@ public class Score : MonoBehaviour
         {
             streakMultiplier++;
         }
+
+        ScoreUI.updateScore?.Invoke();
     }
 
     void SelfDestructDestroy()
@@ -60,6 +60,17 @@ public class Score : MonoBehaviour
         {
             streakMultiplier++;
         }
+
+        ScoreUI.updateScore?.Invoke();
+    }
+
+    void ResetStreak()
+    {
+        streakMultiplier = 1;
+        timer = 0f;
+        streakStarted = false;
+
+        ScoreUI.updateScore?.Invoke();
     }
 
     private void OnDestroy()
@@ -69,4 +80,5 @@ public class Score : MonoBehaviour
     }
 
     public int GetScore() => score;
+    public int GetStreakMultiplier() => streakMultiplier;
 }
