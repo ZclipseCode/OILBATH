@@ -4,6 +4,11 @@ using UnityEngine;
 
 public class Objective : MonoBehaviour
 {
+    private void Awake()
+    {
+        CarSpawner.addObjective?.Invoke(this);
+    }
+
     private void OnTriggerEnter2D(Collider2D collision)
     {
         if (collision.CompareTag("Car"))

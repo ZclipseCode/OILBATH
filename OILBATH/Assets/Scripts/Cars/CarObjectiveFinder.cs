@@ -34,7 +34,7 @@ public class CarObjectiveFinder : MonoBehaviour
 
     private void OnTriggerEnter2D(Collider2D collision)
     {
-        if (collision.CompareTag("Objective") && searching)
+        if (collision.CompareTag("Objective") && searching && col != null)
         {
             Vector3 direction = collision.transform.position - transform.position;
             float distance = direction.magnitude;

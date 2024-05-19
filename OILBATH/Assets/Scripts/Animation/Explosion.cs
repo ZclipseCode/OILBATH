@@ -8,6 +8,8 @@ public class Explosion : MonoBehaviour
 
     public void Destroy()
     {
+        CarSpawner.carReady?.Invoke();
+
         Destroy(parent);
     }
 }
