@@ -5,14 +5,17 @@ using UnityEngine;
 public class CarMovement : MonoBehaviour
 {
     [SerializeField] float speed = 1f;
-    [SerializeField] float maxSpeed = 1f;
     [SerializeField] GameObject explosion;
+    float maxSpeed;
     Transform objective;
     Rigidbody2D rb;
+    float difficulty = 1f;
 
     private void Start()
     {
         rb = GetComponent<Rigidbody2D>();
+        difficulty = Difficulty.difficulty;
+        maxSpeed = speed + difficulty;
     }
 
     private void Update()
@@ -30,7 +33,7 @@ public class CarMovement : MonoBehaviour
         Vector2 targetVelocity = moveDirection * maxSpeed;
         Vector2 velocityChange = targetVelocity - rb.velocity;
 
-        rb.AddForce(velocityChange * speed, ForceMode2D.Force);
+        rb.AddForce(velocityChange * (speed + difficulty), ForceMode2D.Force);
     }
 
     private void OnCollisionEnter2D(Collision2D collision)
