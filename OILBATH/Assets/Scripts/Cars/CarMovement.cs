@@ -41,6 +41,7 @@ public class CarMovement : MonoBehaviour
 
             if (motorcycleMovement.GetBoostPressed() && motorcycleMovement.GetCurrentBoost() > 0f && collision.relativeVelocity.magnitude >= motorcycleMovement.GetDestroySpeed())
             {
+                Score.boostDestroy?.Invoke();
                 Instantiate(explosion, transform.position, Quaternion.identity);
                 Destroy(gameObject);
             }
