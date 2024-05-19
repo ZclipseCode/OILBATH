@@ -29,6 +29,13 @@ public class CarMovement : MonoBehaviour
     void Move()
     {
         Vector2 distance = objective.position - transform.position;
+
+        if (distance.magnitude < 0.1f)
+        {
+            CarSpawner.carReady?.Invoke();
+            Destroy(gameObject);
+        }
+
         Vector2 moveDirection = distance.normalized;
         Vector2 targetVelocity = moveDirection * maxSpeed;
         Vector2 velocityChange = targetVelocity - rb.velocity;
