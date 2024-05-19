@@ -4,7 +4,7 @@ using UnityEngine;
 
 public class Objective : MonoBehaviour
 {
-    private void Start()
+    private void OnEnable()
     {
         CarSpawner.addObjective?.Invoke(this);
     }
