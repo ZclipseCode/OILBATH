@@ -6,7 +6,7 @@ public class Explosion : MonoBehaviour
 {
     [SerializeField] GameObject parent;
 
-    public void Destroy()
+    public void DestroyExplosion()
     {
         CarSpawner.carReady?.Invoke();
 

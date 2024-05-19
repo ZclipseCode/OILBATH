@@ -1,6 +1,7 @@
 using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
+using UnityEngine.SceneManagement;
 
 public class CarOffense : MonoBehaviour
 {
@@ -63,7 +64,7 @@ public class CarOffense : MonoBehaviour
             {
                 if (!col.GetComponent<MotorcycleMovement>().GetIsBoosting())
                 {
-                    print("Loss");
+                    SceneManager.LoadScene("Loss");
                 }
             }
             if (col.CompareTag("Car") && col.gameObject != gameObject)

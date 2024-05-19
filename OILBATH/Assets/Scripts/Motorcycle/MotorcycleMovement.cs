@@ -13,6 +13,8 @@ public class MotorcycleMovement : MonoBehaviour
     [SerializeField] float boostDischargeSpeed = 1f;
     [SerializeField] float boostRechargeSpeed = 1f;
     [SerializeField] float maxBoost = 10f;
+    [SerializeField] AudioSource driveSource;
+    [SerializeField] AudioSource boostSource;
     Rigidbody2D rb;
     PlayerControls playerControls;
     bool boostPressed;
@@ -40,11 +42,22 @@ public class MotorcycleMovement : MonoBehaviour
         float horizontal = playerControls.Player.Movement.ReadValue<Vector2>().x;
         float vertical = playerControls.Player.Movement.ReadValue<Vector2>().y;
 
-        Vector2 moveDirection = new Vector2(horizontal, vertical).normalized;
+        Vector2 inputs = new Vector2(horizontal, vertical);
+
+        Vector2 moveDirection = inputs.normalized;
         Vector2 targetVelocity = moveDirection * maxSpeed;
         Vector2 velocityChange = targetVelocity - rb.velocity;
 
         rb.AddForce(velocityChange * speed, ForceMode2D.Force);
+
+        if (inputs.magnitude > 0.01f && !driveSource.isPlaying && !isBoosting)
+        {
+            driveSource.Play();
+        }
+        if (inputs.magnitude <= 0.01f || isBoosting)
+        {
+            driveSource.Stop();
+        }
     }
 
     void Boost()
@@ -84,6 +97,15 @@ public class MotorcycleMovement : MonoBehaviour
         else
         {
             isBoosting = false;
+        }
+
+        if (isBoosting && !boostSource.isPlaying)
+        {
+            boostSource.Play();
+        }
+        if (!isBoosting)
+        {
+            boostSource.Stop();
         }
     }
 
