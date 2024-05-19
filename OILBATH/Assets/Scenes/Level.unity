@@ -26734,8 +26734,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 9300056b9f55137409e9636f1ce035d1, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  timeBetweenIncreases: 1
-  difficultyIncrease: 7
+  timeBetweenIncreases: 10
+  difficultyIncrease: 0.5
   maxDifficulty: 7
 --- !u!1 &1139473129
 GameObject:
