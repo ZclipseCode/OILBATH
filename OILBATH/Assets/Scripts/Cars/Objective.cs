@@ -6,7 +6,7 @@ public class Objective : MonoBehaviour
 {
     private void OnEnable()
     {
-        CarSpawner.addObjective?.Invoke(this);
+        //CarSpawner.addObjective?.Invoke(this);
     }
 
     private void OnTriggerEnter2D(Collider2D collision)

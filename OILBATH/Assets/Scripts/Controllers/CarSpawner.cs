@@ -6,7 +6,10 @@ public class CarSpawner : MonoBehaviour
 {
     [SerializeField] GameObject[] cars;
     [SerializeField] int totalCars = 10;
-    public static List<Objective> objectives = new List<Objective>();
+    //[SerializeField] int totalObjectives = 35;
+    //bool initiated;
+    //public static List<Objective> objectives = new List<Objective>();
+    [SerializeField] List<Objective> objectives = new List<Objective>();
     public delegate void CarReadyDelegate();
     public static CarReadyDelegate carReady;
     public delegate void AddObjectiveDelegate(Objective objective);
@@ -25,6 +28,19 @@ public class CarSpawner : MonoBehaviour
             CarReady();
         }
     }
+
+    //private void Update()
+    //{
+    //    if (!initiated && objectives.Count == totalObjectives)
+    //    {
+    //        for (int i = 0; i < totalCars; i++)
+    //        {
+    //            CarReady();
+    //        }
+
+    //        initiated = true;
+    //    }
+    //}
 
     void CarReady()
     {
