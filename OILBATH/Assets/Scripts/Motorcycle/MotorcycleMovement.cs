@@ -15,6 +15,7 @@ public class MotorcycleMovement : MonoBehaviour
     PlayerControls playerControls;
     bool boostPressed;
     float currentBoost;
+    bool isBoosting;
 
     private void Awake()
     {
@@ -73,6 +74,15 @@ public class MotorcycleMovement : MonoBehaviour
         {
             currentBoost = maxBoost;
         }
+
+        if (currentBoost > 0 && boostPressed)
+        {
+            isBoosting = true;
+        }
+        else
+        {
+            isBoosting = false;
+        }
     }
 
     private void OnDestroy()
@@ -84,4 +94,5 @@ public class MotorcycleMovement : MonoBehaviour
     public bool GetBoostPressed() => boostPressed;
     public float GetMaxBoost() => maxBoost;
     public float GetCurrentBoost() => currentBoost;
+    public bool GetIsBoosting() => isBoosting;
 }

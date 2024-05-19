@@ -61,7 +61,10 @@ public class CarOffense : MonoBehaviour
         {
             if (col.CompareTag("Player"))
             {
-                print("Loss");
+                if (!col.GetComponent<MotorcycleMovement>().GetIsBoosting())
+                {
+                    print("Loss");
+                }
             }
             if (col.CompareTag("Car"))
             {
